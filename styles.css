@@ -53,11 +53,12 @@ body {
 }
 
 .maintext {
+  font-size: 10vh;
   text-align: center;
   position: absolute;
   margin-top: 40vh;
   font-size: 50px;
-  color: white;
+  color: grey;
 }
 
 /* NAV MENU STYLES DESKTOP */

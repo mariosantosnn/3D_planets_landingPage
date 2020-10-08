@@ -1,7 +1,5 @@
 import * as THREE from '/js/three.module.js';
 
-			import { AnaglyphEffect } from '/js/AnaglyphEffect.js';
-
 			var container, camera, scene, renderer, effect;
 
 			var spheres = [];
@@ -29,11 +27,18 @@ import * as THREE from '/js/three.module.js';
 				scene = new THREE.Scene();
 
 				var geometry = new THREE.SphereBufferGeometry( 0.08, 32, 16 );
-				var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+				var texture = new THREE.TextureLoader().load('/assets/tex_mars.jpeg');
+				var material = new THREE.MeshBasicMaterial({map : texture});
+				var texture2 = new THREE.TextureLoader().load('/assets/tex_moon.jpg');
+				var material2 = new THREE.MeshBasicMaterial({map : texture2});
 
-				for ( var i = 0; i < 30; i ++ ) {
 
-					var mesh = new THREE.Mesh( geometry, material );
+				for ( var i = 0; i < 15; i ++ ) {
+
+					if (i%2==0){var mesh = new THREE.Mesh( geometry, material2 );}
+					else {
+						var mesh = new THREE.Mesh( geometry, material );
+					}
 
 					mesh.position.x = Math.random() * 10 - 5;
 					mesh.position.y = Math.random() * 10 - 5;
@@ -53,11 +58,9 @@ import * as THREE from '/js/three.module.js';
 				renderer.setPixelRatio( window.devicePixelRatio );
 				screen.appendChild(renderer.domElement);
 
-				var width = window.innerWidth || 2;
-				var height = window.innerHeight || 2;
-
-				effect = new AnaglyphEffect( renderer );
-				effect.setSize( width, height );
+				var width = window.innerWidth;
+				var height = window.innerHeight;
+				renderer.setSize( width, height );
 
 				//
 
@@ -112,6 +115,6 @@ import * as THREE from '/js/three.module.js';
 
 				}
 
-				effect.render( scene, camera );
+				renderer.render( scene, camera );
 
 			}
