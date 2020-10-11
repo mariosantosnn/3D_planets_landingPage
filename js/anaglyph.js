@@ -26,23 +26,36 @@ import * as THREE from '/js/three.module.js';
 
 				scene = new THREE.Scene();
 
-				var geometry = new THREE.SphereBufferGeometry( 0.08, 32, 16 );
-				var texture = new THREE.TextureLoader().load('/assets/tex_mars.jpeg');
-				var material = new THREE.MeshBasicMaterial({map : texture});
-				var texture2 = new THREE.TextureLoader().load('/assets/tex_moon.jpg');
-				var material2 = new THREE.MeshBasicMaterial({map : texture2});
+				var texture = new THREE.TextureLoader().load('/assets/worlds/tex_mars.jpeg');
+				var texture2 = new THREE.TextureLoader().load('/assets/worlds/tex_moon.jpg');
+				var texture3 = new THREE.TextureLoader().load('/assets/worlds/tex_ice.jpeg');
+				var texture4 = new THREE.TextureLoader().load('/assets/worlds/tex_ice_vibrant.jpeg');
+				var texture5 = new THREE.TextureLoader().load('/assets/worlds/tex_ice_ice.jpeg');
+				var texture6 = new THREE.TextureLoader().load('/assets/worlds/tex_ice_blue.jpeg');
+				var texture7 = new THREE.TextureLoader().load('/assets/worlds/tex_ice_black.jpeg');
+				var texture8 = new THREE.TextureLoader().load('/assets/worlds/tex_dry_ice.jpeg');
+
+				var materialA = [
+				new THREE.MeshBasicMaterial({map : texture}),
+				new THREE.MeshBasicMaterial({map : texture2}),
+				new THREE.MeshBasicMaterial({map : texture3}),
+				new THREE.MeshBasicMaterial({map : texture4}),
+				new THREE.MeshBasicMaterial({map : texture5}),
+				new THREE.MeshBasicMaterial({map : texture6}),
+				new THREE.MeshBasicMaterial({map : texture7}),
+				new THREE.MeshBasicMaterial({map : texture8})
+			];
+
+			var geometry = new THREE.SphereBufferGeometry( 0.08, 32, 16 );
+
+				for ( var i = 0; i < 9; i ++ ) {
+						 var mater = materialA[i];
+						var mesh = new THREE.Mesh( geometry, mater);
 
 
-				for ( var i = 0; i < 15; i ++ ) {
-
-					if (i%2==0){var mesh = new THREE.Mesh( geometry, material2 );}
-					else {
-						var mesh = new THREE.Mesh( geometry, material );
-					}
-
-					mesh.position.x = Math.random() * 10 - 5;
-					mesh.position.y = Math.random() * 10 - 5;
-					mesh.position.z = Math.random() * 10 - 5;
+					mesh.position.x = Math.random() * 10 - 6;
+					mesh.position.y = Math.random() * 10 - 6;
+					mesh.position.z = Math.random() * 10 - 6;
 
 					mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 3 + 1;
 
@@ -54,8 +67,9 @@ import * as THREE from '/js/three.module.js';
 
 				//
 
-				renderer = new THREE.WebGLRenderer();
+				renderer = new THREE.WebGLRenderer({alpha: true});
 				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setClearColor( 0x000000, 0 );
 				screen.appendChild(renderer.domElement);
 
 				var width = window.innerWidth;
@@ -110,8 +124,8 @@ import * as THREE from '/js/three.module.js';
 
 					var sphere = spheres[ i ];
 
-					sphere.position.x = 5 * Math.cos( timer + i );
-					sphere.position.y = 5 * Math.sin( timer + i * 1.1 );
+					sphere.position.x = 2 * Math.cos( timer + i );
+					sphere.position.y = 2 * Math.sin( timer + i * 1.1 );
 
 				}
 

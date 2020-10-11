@@ -18,6 +18,14 @@ body {
   animation: smooth-in 2s ease;
 }
 
+.backg{
+  align-self: center;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.5;
+  z-index: -1;
+}
+
 @keyframes smooth-in {
   0%{
     opacity: 0;
@@ -95,8 +103,8 @@ body {
 
 .sonar {
   position: absolute;
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   background-color: white;
   border-radius: 50%;
   padding: 20px;
@@ -106,8 +114,8 @@ body {
 
 .logo_circle {
   position: absolute;
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
   background-color: black;
   border-radius: 50%;
   padding: 20px;
@@ -116,8 +124,8 @@ body {
 
 .menuNav {
   position: absolute;
-  height: 80px;
-  width: 80px;
+  height: 90px;
+  width: 90px;
   min-width: 50px;
   min-height: 50px;
   bottom: 10vh;
@@ -141,7 +149,7 @@ body {
 
 .menuNav:hover {
   width: 450px;
-  height: 80px;
+  height: 90px;
 }
 
 .menuNav:hover .nav_link{
