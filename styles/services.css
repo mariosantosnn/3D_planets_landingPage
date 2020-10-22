@@ -1,0 +1,170 @@
+* {
+  font-family: Poppins;
+}
+
+html {
+  background-color: black;
+animation: fade-white 1s ease forwards;
+}
+
+@keyframes fade-white {
+  0% {
+    background-color: black;
+  }
+  10%{
+    background-color: black;
+  }
+  100% {
+    background-color: white;
+  }
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: gray;
+}
+
+body {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  animation: smooth-in 4s ease;
+}
+
+@keyframes smooth-in {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+.message {
+  position: absolute;
+  bottom: 10vh;
+  right: 10vh;
+  color: black;
+  font-size: 1vw;
+}
+
+.gbar {
+  font-family: Poppins;
+  color: black;
+  position: absolute;
+  top: 5vh;
+  left: 10vh;
+  right: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.1vw;
+}
+
+.mainScreen {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: Poppins;
+}
+
+/* NAV MENU STYLES DESKTOP */
+
+.logo_circle {
+  height: 45px;
+  width: 45px;
+  background-color: transparent;
+  border-radius: 50%;
+  padding: 20px;
+  transition: opacity 200ms ease;
+}
+
+.menuNav {
+  position: absolute;
+  width: 450px;
+  height: 80px;
+  min-width: 50px;
+  min-height: 50px;
+  bottom: 10vh;
+  left: 10vh;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  transition: width 300ms ease;
+}
+
+.nav_link {
+  z-index: 1;
+  padding: 20px;
+  font-family: Poppins;
+  animation: fade-in 0.4s ease;
+  color: white;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity:0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.nav_link:hover {
+  background-color: rgba(222,222,222,0.5);
+  border-radius: 30px;
+  color: black;
+}
+
+.sitem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: width 300ms ease;
+}
+
+.services {
+  margin-top: 20vh;
+  heigth: 10vh;
+  width: 60vw;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 150px 150px;
+  grid-row-gap: 20px;
+}
+
+.desc{
+  position: fixed;
+}
+
+.simage {
+  height: 10vh;
+  transition: width 1s ease;
+}
+
+.simage:hover {
+  margin-bottom: 3px;
+  height: 12vh;
+  width: auto;
+}
+
+@media only screen and (max-width: 768px) {
+
+  body {
+    display: none;
+  }
+}
