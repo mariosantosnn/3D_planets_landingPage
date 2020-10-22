@@ -147,8 +147,17 @@ body {
 }
 
 .sitem:hover {
-  height: 110%;
-  width: auto;
+  font-weight: bold;
+}
+
+.sitem:hover .simage{
+  animation: floating 1s infinite;
+}
+
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, -10px); }
+    100%   { transform: translate(0, -0px); }
 }
 
 @media only screen and (max-width: 650px) {
