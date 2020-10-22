@@ -78,37 +78,27 @@ body {
 /* NAV MENU STYLES DESKTOP */
 
 .logo_circle {
-  height: 45px;
-  width: 45px;
-  background-color: transparent;
-  border-radius: 50%;
-  padding: 20px;
-  transition: opacity 200ms ease;
+  height: 2vw;;
+  width: auto;
 }
 
 .menuNav {
   position: absolute;
-  width: 450px;
-  height: 80px;
-  min-width: 50px;
-  min-height: 50px;
-  bottom: 10vh;
+  bottom: 9vh;
   left: 10vh;
-  background-color: black;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-radius: 100px;
-  transition: width 300ms ease;
 }
 
 .nav_link {
+  font-size: 1vw;
   z-index: 1;
   padding: 20px;
   font-family: Poppins;
   animation: fade-in 0.4s ease;
-  color: white;
+  color: black;
 }
 
 @keyframes fade-in {
@@ -130,6 +120,7 @@ body {
 }
 
 .sitem {
+  font-size: 1vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -139,11 +130,10 @@ body {
 
 .services {
   margin-top: 20vh;
-  heigth: 10vh;
   width: 60vw;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 150px 150px;
+  grid-template-rows: 30% 30%;
   grid-row-gap: 20px;
 }
 
@@ -156,13 +146,12 @@ body {
   transition: width 1s ease;
 }
 
-.simage:hover {
-  margin-bottom: 3px;
-  height: 12vh;
+.sitem:hover {
+  height: 110%;
   width: auto;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 650px) {
 
   body {
     display: none;
