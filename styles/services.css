@@ -120,16 +120,28 @@ body {
 }
 
 .sitem {
+  width: 80%;
   font-size: 1vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: width 300ms ease;
+  transition: filter .4s ease;
+}
+
+.sitem:hover {
+  font-weight: bold;
+  background-color: white;
+  border-radius: 10%;
+  filter: invert(100%);
+}
+
+.sitem:hover .simage{
+  animation: floating 1s infinite;
 }
 
 .services {
-  margin-top: 20vh;
+  margin-top: 25vh;
   width: 60vw;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
@@ -144,14 +156,6 @@ body {
 .simage {
   height: 10vh;
   transition: width 1s ease;
-}
-
-.sitem:hover {
-  font-weight: bold;
-}
-
-.sitem:hover .simage{
-  animation: floating 1s infinite;
 }
 
 @keyframes floating {
