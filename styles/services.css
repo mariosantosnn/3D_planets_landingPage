@@ -7,6 +7,18 @@ html {
 animation: fade-white 1s ease forwards;
 }
 
+canvas{
+    position: absolute;
+    width:100vw;
+    height:100vh;
+    z-index: 1;
+}
+
+.backg{
+  position: absolute;
+  z-index: -1;
+}
+
 @keyframes fade-white {
   0% {
     background-color: black;
@@ -126,7 +138,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: filter .4s ease;
+  transition: filter .4s ease-out;
 }
 
 .sitem:hover {
@@ -147,6 +159,7 @@ body {
   grid-template-columns: 25% 25% 25% 25%;
   grid-template-rows: 30% 30%;
   grid-row-gap: 20px;
+  z-index: 1;
 }
 
 .desc{
@@ -162,6 +175,15 @@ body {
     0% { transform: translate(0,  0px); }
     50%  { transform: translate(0, -10px); }
     100%   { transform: translate(0, -0px); }
+}
+
+.serviceInfo {
+  z-index: 2;
+  display: none;
+  background-color: black;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 }
 
 @media only screen and (max-width: 650px) {
