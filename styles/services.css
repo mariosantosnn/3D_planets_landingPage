@@ -7,16 +7,30 @@ html {
 animation: fade-white 1s ease forwards;
 }
 
-canvas{
-    position: absolute;
-    width:100vw;
-    height:100vh;
-    z-index: 1;
+.backg{
+  margin: 0;
+  position: fixed;
+  z-index: -1;
+  align-self: center;
+  animation: waves 8s infinite;
 }
 
-.backg{
-  position: absolute;
-  z-index: -1;
+@keyframes waves {
+  0% {
+    opacity:.05;
+  }
+  25%{
+    opacity:.2;
+  }
+  50%{
+    opacity: .3;
+  }
+  75%{
+    opacity: .2;
+  }
+  100% {
+    opacity: .05;
+  }
 }
 
 @keyframes fade-white {
