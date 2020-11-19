@@ -17,7 +17,7 @@ animation: fade-white 1s ease forwards;
 
 @keyframes waves {
   0% {
-    opacity:.05;
+    opacity: 0;
   }
   25%{
     opacity:.2;
@@ -29,7 +29,7 @@ animation: fade-white 1s ease forwards;
     opacity: .2;
   }
   100% {
-    opacity: .05;
+    opacity: 0;
   }
 }
 

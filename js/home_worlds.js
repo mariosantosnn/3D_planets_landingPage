@@ -65,10 +65,6 @@ import * as THREE from '/js/three.module.js';
 
 				}
 
-				var light = new THREE.PointLight( 0xff0000, 1, 100 );
-				light.position.set( 50, 50, 50 );
-				scene.add( light );
-
 				//
 
 				renderer = new THREE.WebGLRenderer({alpha: true});
