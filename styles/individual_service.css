@@ -102,11 +102,42 @@ body {
 
 .contentor{
   margin-top: 20vh;
-  width: 70vw;
+  width: 20vw;
   height: 60vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1s ease;
+}
+
+.contentor p{
+  font-size: large;
+  opacity: 0;
+  color: white;
+  position: absolute;
+  transition: opacity .5s ease-in;
+}
+
+.contentor:hover img{
+  opacity: 0;
+}
+.contentor:hover span{
+  opacity: 0;
+}
+.contentor:hover p{
+  opacity: 1;
+}
+
+.anim{
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+img {
+  position: absolute;
+  width: 15vw;
 }
 
 @media only screen and (max-width: 650px) {
