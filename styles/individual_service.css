@@ -114,8 +114,8 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  max-height: 30vh;
-  max-width: 30vw;
+  max-height: 30%;
+  width: 20%;
 }
 
 .text{
@@ -124,7 +124,7 @@ body {
   text-align:justify;
   justify-content: flex-start;
   align-items: center;
-  width: 50vw;
+  width: 50%;
 }
 
 .contentor p{
@@ -132,10 +132,10 @@ body {
   color: white;
 }
 
-img {
-  position: absolute;
-  max-width: inherit;
-  max-height: inherit;
+.image img {
+  position: fixed;
+  max-width: 50%;
+  max-height:60%;
 }
 
 .homeButton {
