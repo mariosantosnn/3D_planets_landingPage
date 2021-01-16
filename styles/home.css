@@ -235,7 +235,7 @@ body {
     min-height: 50px;
     left: 1;
     right: 1;
-    bottom: 10vh;
+    bottom: 20vh;
     background-color: white;
     display: flex;
     flex-direction: row;
@@ -248,12 +248,12 @@ body {
   .nav_link {
     z-index: 1;
     display:flex;
-    padding: 20px;
+    padding: 15px;
     font-family: Poppins;
     animation: fade-in 0.4s ease;
     color: black;
     position: relative;
-    font-size: 3vw;
+    font-size: 3.5vw;
   }
 
   .menuNav:hover{
@@ -309,6 +309,10 @@ body {
 
   .gbar a{
     font-size: 3vw;
+  }
+
+  .message {
+    display: none;
   }
 
 }
