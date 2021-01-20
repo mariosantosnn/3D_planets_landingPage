@@ -1,3 +1,7 @@
+#main {
+    overflow: auto;
+}
+
 * {
   font-family: Poppins;
 }
@@ -176,7 +180,49 @@ body {
 
 @media only screen and (max-width: 600px) {
 
-  body {
-    display: none;
+  .contentor{
+    display: flex;
+    flex-direction: column-reverse;;
   }
+
+  .text{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    text-align:justify;
+    align-items: center;
+    width: 70%;
+    height: 300px;
+  }
+
+  .text p{
+    font-size: 5vw !important;
+  }
+
+  .image{
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    position: relative;
+    width:100%;
+  }
+
+  .image img {
+    width: 60%;
+    position: relative;
+  }
+
+
+  .mainScreen {
+      width: 100vw;
+      height: 1000px;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: Poppins;
+      overflow: auto;
+  }
+
+
 }
