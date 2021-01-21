@@ -1,60 +1,37 @@
-* {
-  font-family: Poppins;
-}
-
-html {
-  background-color: black;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-
-a:hover {
-  color: gray;
-}
-
-canvas {
-  position: absolute;
-  z-index: -1;
-}
-
 body {
-  position: absolute;
   margin: 0;
   padding: 0;
   animation: smooth-in 4s ease;
+  font-family: Poppins;
+  background-color: black;
+  color: white;
 }
 
-.backg{
-  align-self: center;
-  height: 100vh;
+.mainScreen {
   width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainScreen::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url(../assets/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   opacity: 0.5;
   z-index: -1;
 }
 
-@keyframes smooth-in {
-  0%{
-    opacity: 0;
-  }
-  100%{
-    opacity:1;
-  }
-}
-
-.message {
-  position: absolute;
-  bottom: 10vh;
-  right: 10vh;
-  color: white;
-  font-size: 1vw;
-}
-
 .gbar {
-  font-family: Poppins;
-  color: white;
   position: absolute;
   top: 5vh;
   left: 10vh;
@@ -62,43 +39,53 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 1.1vw;
+  font-size: 16px;
 }
 
-.mainScreen {
-    width: 100vw;
-    height: 100vh;
-    position: relative;
+@media only screen and (max-width: 600px) {
+  .gbar {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-    font-family: Poppins;
+    align-items: center;
+    font-size: 5vw;
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+
+  .gbar a {
+    font-size: 3vw;
+  }
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .maintext {
   font-size: 10vh;
-  text-align: center;
-  position: absolute;
-  margin-top: 40vh;
   font-size: 3vw;
-  color: white;
+  margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .maintext {
+    font-size: 6vw;
+  }
 }
 
 .homeButton {
-  display: block;
-  font-size: 1vw;
+  margin-top: 20px;
+  font-size: 18px;
   text-align: center;
-  line-height: 5vh;
-  width: 8vw;
-  height: 5vh;
-  position: absolute;
-  margin-top: 52vh;
   background-color: transparent;
-  color: white;
   border: 2px solid #ffffff;
   border-radius: 100px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px 30px;
   transition: background-color .5s ease, color .5s ease;
 }
 
@@ -108,31 +95,8 @@ body {
 }
 
 .homeButton:focus {
-    outline: none;
-    border: none;
-}
-
-/* NAV MENU STYLES DESKTOP */
-
-.sonar {
-  position: absolute;
-  height: 40px;
-  width: 40px;
-  background-color: white;
-  border-radius: 50%;
-  padding: 20px;
-  transition: opacity 200ms ease;
-  animation: sonar-effect 2s ease-in-out .1s infinite;
-}
-
-.logo_circle {
-  position: absolute;
-  height: 45px;
-  width: 45px;
-  background-color: black;
-  border-radius: 50%;
-  padding: 20px;
-  transition: opacity 200ms ease;
+  outline: none;
+  border: none;
 }
 
 .menuNav {
@@ -170,6 +134,90 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+
+@media only screen and (max-width: 600px) {
+  .menuNav {
+    position: absolute;
+    width: 90%;
+    height: 10%;
+    min-width: 50px;
+    min-height: 50px;
+    bottom: 10%;
+    left: 5%;
+    right: 5%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    transition: none;
+  }
+}
+
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: gray;
+}
+
+canvas {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+
+
+
+@keyframes smooth-in {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+.message {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  font-size: 18px;
+}
+
+
+/* NAV MENU STYLES DESKTOP */
+
+.sonar {
+  z-index: 0;
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 20px;
+  transition: opacity 200ms ease;
+  animation: sonar-effect 2s ease-in-out .1s infinite;
+}
+
+.logo_circle {
+  z-index: 0;
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  background-color: black;
+  border-radius: 50%;
+  padding: 20px;
+  transition: opacity 200ms ease;
+}
+
+
 
 .nav_link {
   z-index: 1;
@@ -215,38 +263,7 @@ body {
 
 @media only screen and (max-width: 600px) {
 
-
-  .mainScreen {
-      width: 100vw;
-      height: 100vh;
-      position: fixed;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: Poppins;
-  }
-
-    .menuNav {
-    position: relative;
-    height: 10vh;
-    width: 90vw;
-    min-width: 50px;
-    min-height: 50px;
-    left: 1;
-    right: 1;
-    bottom: 20vh;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100px;
-    transition: none;
-  }
-
   .nav_link {
-    z-index: 1;
     display:flex;
     padding: 15px;
     font-family: Poppins;
@@ -267,48 +284,6 @@ body {
 
   .sonar {
     display: none;
-  }
-
-  .homeButton {
-    display: block;
-    font-size: 4vw;
-    text-align: center;
-    line-height: 5vh;
-    width: 30vw;
-    height: 5vh;
-    position: absolute;
-    margin-top: 52vh;
-    background-color: transparent;
-    color: white;
-    border: 2px solid #ffffff;
-    border-radius: 100px;
-    padding-left: 10px;
-    padding-right: 10px;
-    transition: background-color .5s ease, color .5s ease;
-    bottom: 40%;
-  }
-
-  .maintext {
-    text-align: center;
-    position: absolute;
-    margin-top: 40vh;
-    font-size: 6vw;
-    color: white;
-    bottom: 50%;
-  }
-
-  .gbar {
-    font-family: Poppins;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 5vw;
-  }
-
-  .gbar a{
-    font-size: 3vw;
   }
 
   .message {

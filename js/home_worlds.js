@@ -70,12 +70,12 @@ import * as THREE from '/js/three.module.js';
 				renderer = new THREE.WebGLRenderer({alpha: true});
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setClearColor( 0x000000, 0 );
-				screen.appendChild(renderer.domElement);
-
+				
 				var width = window.innerWidth;
 				var height = window.innerHeight;
 				renderer.setSize( width, height );
-
+				
+				screen.appendChild(renderer.domElement);
 				//
 
 				window.addEventListener( 'resize', onWindowResize, false );
