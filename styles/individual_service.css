@@ -14,16 +14,6 @@ body {
   flex-direction: column;
 }
 
-.mainScreen {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
 a {
   color: white;
   text-decoration: none;
@@ -42,26 +32,19 @@ a:hover {
   }
 }
 
-.message {
-  position: absolute;
-  bottom: 10vh;
-  right: 10vh;
-  color: white;
-  font-size: 1vw;
-}
-
 .gbar {
   font-size: 18px;
   padding: 30px
 }
 
-.mainScreen {
-  width: 100vw;
-  height: 100vh;
+.contentor{
+  height: 70vh;
+  flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  font-family: Poppins;
+  align-items: center;
+  padding: 0px 60px;
 }
 
 .menuNav {
@@ -97,15 +80,6 @@ a:hover {
   background-color: rgba(222,222,222,0.5);
   border-radius: 30px;
   color: black;
-}
-
-.contentor{
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 30px 60px;
 }
 
 .image {
@@ -174,50 +148,6 @@ a:hover {
 }
 
 @media only screen and (max-width: 600px) {
-
-  .contentor{
-    display: flex;
-    flex-direction: column-reverse;;
-  }
-
-  .text{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    text-align:justify;
-    align-items: center;
-    width: 70%;
-    height: 300px;
-  }
-
-  .text p{
-    font-size: 5vw !important;
-  }
-
-  .image{
-    display: flex;
-    flex-direction: column;
-    max-height: 100%;
-    position: relative;
-    width:100%;
-  }
-
-  .image img {
-    width: 60%;
-    position: relative;
-  }
-
-
-  .mainScreen {
-      width: 100vw;
-      height: 1000px;
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-family: Poppins;
-      overflow: auto;
-  }
 
 
 }
