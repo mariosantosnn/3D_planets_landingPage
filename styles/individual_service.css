@@ -109,6 +109,32 @@ a:hover {
   height: 100%;
 }
 
+.homeButton {
+  display: block;
+  font-size: 1vw;
+  text-align: center;
+  line-height: 5vh;
+  width: 9vw;
+  height: 5vh;
+  background-color: transparent;
+  color: white;
+  border: 2px solid #ffffff;
+  border-radius: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: background-color .5s ease, color .5s ease;
+}
+
+.homeButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.homeButton:focus {
+    outline: none;
+    border: none;
+}
+
 .second{
   animation: floatingup 2s infinite;
 }
