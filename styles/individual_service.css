@@ -99,6 +99,27 @@ a:hover {
   color: white;
 }
 
+.mimage {
+  position: relative;
+}
+
+.mimage img {
+  width: 300px;
+  height:auto;
+}
+
+.mimage img.second {
+  position: absolute;
+  left: 0;
+}
+
+.mimage img.second {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  animation: floatingup 2s infinite;
+}
+
 .image img {
   height: 70%;
 }
@@ -107,6 +128,7 @@ a:hover {
   position: absolute;
   left: 0;
   height: 100%;
+  animation: floatingup 2s infinite;
 }
 
 .homeButton {
@@ -135,10 +157,6 @@ a:hover {
     border: none;
 }
 
-.second{
-  animation: floatingup 2s infinite;
-}
-
 @keyframes floatingup {
     0% { transform: translate(0,  0px); }
     50%  { transform: translate(0, 10px); }
@@ -147,9 +165,6 @@ a:hover {
 
 @media only screen and (max-width: 600px) {
 
-body{
-  justify-content: center;
-}
 
 .gbar{
   display: flex;
@@ -159,25 +174,92 @@ body{
 
 .contentor{
   flex-direction: column-reverse;
+  height: 100%;
+  width:100%;
+  padding: 0;
 }
 
 .text{
   width:80vw;
   margin-right: 0;
+  text-align: justify;
 }
 
-.image {
+.mimage {
   position: relative;
 }
 
+.mimage img {
+  width: 100px;
+  height:auto;
+}
+
+.mimage img.second {
+  position: absolute;
+  left: 0;
+}
+
+.mimage img.second {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  animation: floatingup 2s infinite;
+}
+
+
+.image {
+  position: relative;
+  margin-bottom: 30px;
+}
+
 .image img {
-  height: 40vh;
+  width: 300px;
+  height:auto;
 }
 
 .image img.second {
   position: absolute;
   left: 0;
-  height: 100%;
+}
+
+.homeButton {
+  display: block;
+  font-size: 15px;
+  text-align: center;
+  line-height: 50px;
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid #ffffff;
+  border-radius: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 30px;
+  transition: background-color .5s ease, color .5s ease;
+}
+
+.homeButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.homeButton:focus {
+    outline: none;
+    border: none;
+}
+
+.menuNav {
+  justify-content: center;
+}
+
+.nav_link {
+  font-size: 10px;
+  z-index: 1;
+  padding: 20px;
+  font-family: Poppins;
+  animation: fade-in 0.4s ease;
+  color: white;
 }
 
 }

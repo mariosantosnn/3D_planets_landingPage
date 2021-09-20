@@ -3,7 +3,7 @@
 }
 
 html {
-  background-color: black;
+background-color: black;
 animation: fade-white 1s ease forwards;
 }
 
@@ -13,6 +13,7 @@ animation: fade-white 1s ease forwards;
   z-index: -1;
   align-self: center;
   animation: waves 8s infinite;
+  object-fit: cover;
 }
 
 @keyframes waves {
@@ -200,9 +201,16 @@ body {
   height: 100vh;
 }
 
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 600px) {
 
-  body {
-    display: none;
+  .services {
+    margin-top: 25vh;
+    width: 60vw;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-row-gap: 20px;
+    z-index: 1;
   }
+
 }
