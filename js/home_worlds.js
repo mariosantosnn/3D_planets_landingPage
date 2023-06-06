@@ -1,132 +1,132 @@
-import * as THREE from '/js/three.module.js';
+import * as THREE from "/js/three.module.js";
 
-			var container, camera, scene, renderer, effect;
+var container, camera, scene, renderer, effect;
 
-			var spheres = [];
+var spheres = [];
 
-			var mouseX = 0;
-			var mouseY = 0;
+var mouseX = 0;
+var mouseY = 0;
 
-      var screen = document.getElementById('mainScreen');
+var screen = document.getElementById("mainScreen");
 
-			var windowHalfX = window.innerWidth / 2;
-			var windowHalfY = window.innerHeight / 2;
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
 
-			document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+document.addEventListener("mousemove", onDocumentMouseMove, false);
 
-			init();
-			animate();
+init();
+animate();
 
-			function init() {
+function init() {
+  camera = new THREE.PerspectiveCamera(
+    60,
+    window.innerWidth / window.innerHeight,
+    0.01,
+    100
+  );
+  camera.position.z = 3;
+  camera.focalLength = 3;
 
+  scene = new THREE.Scene();
 
-				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 0.01, 100 );
-				camera.position.z = 3;
-				camera.focalLength = 3;
+  var texture = new THREE.TextureLoader().load("/assets/worlds/tex_mars.jpeg");
+  var texture2 = new THREE.TextureLoader().load("/assets/worlds/tex_moon.jpg");
+  var texture3 = new THREE.TextureLoader().load("/assets/worlds/tex_ice.jpeg");
+  var texture4 = new THREE.TextureLoader().load(
+    "/assets/worlds/tex_ice_vibrant.jpeg"
+  );
+  var texture5 = new THREE.TextureLoader().load(
+    "/assets/worlds/tex_ice_ice.jpeg"
+  );
+  var texture6 = new THREE.TextureLoader().load(
+    "/assets/worlds/tex_ice_blue.jpeg"
+  );
+  var texture7 = new THREE.TextureLoader().load(
+    "/assets/worlds/tex_ice_black.jpeg"
+  );
+  var texture8 = new THREE.TextureLoader().load(
+    "/assets/worlds/tex_dry_ice.jpeg"
+  );
 
-				scene = new THREE.Scene();
+  var materialA = [
+    new THREE.MeshBasicMaterial({ map: texture }),
+    new THREE.MeshBasicMaterial({ map: texture2 }),
+    new THREE.MeshBasicMaterial({ map: texture3 }),
+    new THREE.MeshBasicMaterial({ map: texture4 }),
+    new THREE.MeshBasicMaterial({ map: texture5 }),
+    new THREE.MeshBasicMaterial({ map: texture6 }),
+    new THREE.MeshBasicMaterial({ map: texture7 }),
+    new THREE.MeshBasicMaterial({ map: texture8 }),
+  ];
 
-				var texture = new THREE.TextureLoader().load('/assets/worlds/tex_mars.jpeg');
-				var texture2 = new THREE.TextureLoader().load('/assets/worlds/tex_moon.jpg');
-				var texture3 = new THREE.TextureLoader().load('/assets/worlds/tex_ice.jpeg');
-				var texture4 = new THREE.TextureLoader().load('/assets/worlds/tex_ice_vibrant.jpeg');
-				var texture5 = new THREE.TextureLoader().load('/assets/worlds/tex_ice_ice.jpeg');
-				var texture6 = new THREE.TextureLoader().load('/assets/worlds/tex_ice_blue.jpeg');
-				var texture7 = new THREE.TextureLoader().load('/assets/worlds/tex_ice_black.jpeg');
-				var texture8 = new THREE.TextureLoader().load('/assets/worlds/tex_dry_ice.jpeg');
+  var geometry = new THREE.SphereBufferGeometry(0.08, 32, 16);
 
-				var materialA = [
-				new THREE.MeshBasicMaterial({map : texture}),
-				new THREE.MeshBasicMaterial({map : texture2}),
-				new THREE.MeshBasicMaterial({map : texture3}),
-				new THREE.MeshBasicMaterial({map : texture4}),
-				new THREE.MeshBasicMaterial({map : texture5}),
-				new THREE.MeshBasicMaterial({map : texture6}),
-				new THREE.MeshBasicMaterial({map : texture7}),
-				new THREE.MeshBasicMaterial({map : texture8})
-			];
+  for (var i = 0; i < 8; i++) {
+    var mater = materialA[i];
+    var mesh = new THREE.Mesh(geometry, mater);
 
-			var geometry = new THREE.SphereBufferGeometry( 0.08, 32, 16 );
+    mesh.position.x = Math.random() * 10 - 6;
+    mesh.position.y = Math.random() * 10 - 6;
+    mesh.position.z = Math.random() * 10 - 6;
 
-				for ( var i = 0; i < 8; i ++ ) {
-						 var mater = materialA[i];
-						var mesh = new THREE.Mesh( geometry, mater);
+    mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 3 + 1;
 
+    scene.add(mesh);
 
-					mesh.position.x = Math.random() * 10 - 6;
-					mesh.position.y = Math.random() * 10 - 6;
-					mesh.position.z = Math.random() * 10 - 6;
+    spheres.push(mesh);
+  }
 
-					mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 3 + 1;
+  //
 
-					scene.add( mesh );
+  renderer = new THREE.WebGLRenderer({ alpha: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setClearColor(0x000000, 0);
 
-					spheres.push( mesh );
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+  renderer.setSize(width, height);
 
-				}
+  screen.appendChild(renderer.domElement);
+  //
 
-				//
+  window.addEventListener("resize", onWindowResize, false);
+}
 
-				renderer = new THREE.WebGLRenderer({alpha: true});
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setClearColor( 0x000000, 0 );
-				
-				var width = window.innerWidth;
-				var height = window.innerHeight;
-				renderer.setSize( width, height );
-				
-				screen.appendChild(renderer.domElement);
-				//
+function onWindowResize() {
+  windowHalfX = window.innerWidth / 2;
+  windowHalfY = window.innerHeight / 2;
 
-				window.addEventListener( 'resize', onWindowResize, false );
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
 
-			}
+  //effect.setSize( window.innerWidth, window.innerHeight );
+}
 
-			function onWindowResize() {
+function onDocumentMouseMove(event) {
+  mouseX = (event.clientX - windowHalfX) / 100;
+  mouseY = (event.clientY - windowHalfY) / 100;
+}
 
-				windowHalfX = window.innerWidth / 2;
-				windowHalfY = window.innerHeight / 2;
+function animate() {
+  requestAnimationFrame(animate);
 
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
+  render();
+}
 
-				//effect.setSize( window.innerWidth, window.innerHeight );
+function render() {
+  var timer = 0.0001 * Date.now();
 
-			}
+  camera.position.x += (mouseX - camera.position.x) * 0.05;
+  camera.position.y += (-mouseY - camera.position.y) * 0.05;
 
-			function onDocumentMouseMove( event ) {
+  camera.lookAt(scene.position);
 
-				mouseX = ( event.clientX - windowHalfX ) / 100;
-				mouseY = ( event.clientY - windowHalfY ) / 100;
+  for (var i = 0, il = spheres.length; i < il; i++) {
+    var sphere = spheres[i];
 
-			}
+    sphere.position.x = 2 * Math.cos(timer + i);
+    sphere.position.y = 2 * Math.sin(timer + i * 1.1);
+  }
 
-			function animate() {
-
-				requestAnimationFrame( animate );
-
-				render();
-
-			}
-
-			function render() {
-
-				var timer = 0.0001 * Date.now();
-
-				camera.position.x += ( mouseX - camera.position.x ) * .05;
-				camera.position.y += ( - mouseY - camera.position.y ) * .05;
-
-				camera.lookAt( scene.position );
-
-				for ( var i = 0, il = spheres.length; i < il; i ++ ) {
-
-					var sphere = spheres[ i ];
-
-					sphere.position.x = 2 * Math.cos( timer + i );
-					sphere.position.y = 2 * Math.sin( timer + i * 1.1 );
-
-				}
-
-				renderer.render( scene, camera );
-
-			}
+  renderer.render(scene, camera);
+}
