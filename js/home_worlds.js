@@ -32,21 +32,11 @@ function init() {
   var texture = new THREE.TextureLoader().load("/assets/worlds/tex_mars.jpeg");
   var texture2 = new THREE.TextureLoader().load("/assets/worlds/tex_moon.jpg");
   var texture3 = new THREE.TextureLoader().load("/assets/worlds/tex_ice.jpeg");
-  var texture4 = new THREE.TextureLoader().load(
-    "/assets/worlds/tex_ice_vibrant.jpeg"
-  );
-  var texture5 = new THREE.TextureLoader().load(
-    "/assets/worlds/tex_ice_ice.jpeg"
-  );
-  var texture6 = new THREE.TextureLoader().load(
-    "/assets/worlds/tex_ice_blue.jpeg"
-  );
-  var texture7 = new THREE.TextureLoader().load(
-    "/assets/worlds/tex_ice_black.jpeg"
-  );
-  var texture8 = new THREE.TextureLoader().load(
-    "/assets/worlds/tex_dry_ice.jpeg"
-  );
+  var texture4 = new THREE.TextureLoader().load("/assets/worlds/tex_ice_vibrant.jpeg");
+  var texture5 = new THREE.TextureLoader().load("/assets/worlds/tex_ice_ice.jpeg");
+  var texture6 = new THREE.TextureLoader().load("/assets/worlds/tex_ice_blue.jpeg");
+  var texture7 = new THREE.TextureLoader().load("/assets/worlds/tex_ice_black.jpeg");
+  var texture8 = new THREE.TextureLoader().load("/assets/worlds/tex_dry_ice.jpeg");
 
   var materialA = [
     new THREE.MeshBasicMaterial({ map: texture }),
@@ -76,8 +66,6 @@ function init() {
     spheres.push(mesh);
   }
 
-  //
-
   renderer = new THREE.WebGLRenderer({ alpha: true });
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setClearColor(0x000000, 0);
@@ -87,7 +75,6 @@ function init() {
   renderer.setSize(width, height);
 
   screen.appendChild(renderer.domElement);
-  //
 
   window.addEventListener("resize", onWindowResize, false);
 }
